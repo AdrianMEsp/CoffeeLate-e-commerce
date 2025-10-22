@@ -1,0 +1,8 @@
+.text{
+    font-size: 2rem;
+    background-color: rebeccapurple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}

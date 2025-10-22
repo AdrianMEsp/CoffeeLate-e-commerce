@@ -1,0 +1,33 @@
+
+
+.card{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 650px;
+    margin-left: 2rem;
+}
+
+.text{
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: black;
+}
+
+.text > h3{
+    font-size: 2rem;
+}
+
+.text > span{
+    font-size: 1.5rem;
+}
+
+.image{
+    width: 200px;
+    margin-left: 1rem;
+    height: auto;
+}
