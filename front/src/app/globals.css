@@ -1,4 +1,4 @@
-
+@import "tailwindcss";
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -11,4 +11,12 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-bg {
+  background-image: url('/granos.png');
+  opacity: 0.5;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }

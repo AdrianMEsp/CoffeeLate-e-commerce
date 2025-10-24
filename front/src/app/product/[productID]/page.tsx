@@ -1,5 +1,14 @@
-const ProductPage = async ({params} : {params: {productID: string}}) => {
-    const {productID} = await params;
+interface ProductDetailProps {
+    params: {
+        productID: string;
+    }
+
+}
+
+
+const ProductPage = async ({ params }: ProductDetailProps) => {
+
+    const { productID } = await params;
     return (
         <div>Product Page del producto con ID: {productID}</div>
     )
