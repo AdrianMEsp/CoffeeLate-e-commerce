@@ -14,7 +14,7 @@ body {
 }
 
 .footer-bg {
-  background-image: url('/granos.png');
+  background-image: url('/assets/granos.png');
   opacity: 0.5;
   background-size: cover;
   background-position: center;

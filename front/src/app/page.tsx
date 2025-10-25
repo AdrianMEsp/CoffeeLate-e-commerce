@@ -6,16 +6,19 @@ import CardProp from "./components/CardProp/CardProp"
 import CafeBg from "./../assets/coffeeField.jpg"
 import Link from "next/link"
 import { ListProperties } from "./helpers/ListProperties"
+import { ListProducts } from "./helpers/ListProducts"
 
 export default function Home() {
 
+
     return (
         <main>
+
             <div className="flex justify-between bg-gray-300 border-2 rounded border-black">
                 <div>
                     <Image src={coffee} alt="" />
                 </div>
-                <div className="text-black font-bold text-shadow-gray-600 
+                <div className="text-black font-bold text-shadow-gray-800 
                 text-8xl mr-10 flex flex-col justify-center items-center">
                     <p>Good Coffee <br />
                         will always be </p>
@@ -38,6 +41,12 @@ export default function Home() {
                 </div>
             </div>
 
+            {/* Productos */}
+            <div>
+                <p className="font-bold text-6xl mt-6 text-center">Our Products</p>
+                <CardList/>
+            </div>
+
             {/* Field */}
             <div className="flex p-6 bg-linear-to-b to-neutral-800">
                 <div className="w-1/2">
@@ -50,6 +59,7 @@ export default function Home() {
                         className="p-3 w-35 border rounded bg-linear-to-r from-amber-700 text-center">Read More!</Link>
                 </div>
             </div>
+
         </main>
     )
 }

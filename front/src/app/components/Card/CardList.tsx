@@ -1,11 +1,11 @@
-import productsToPreLoad from "@/utils/productsMockup"
+import {ListProducts} from "../../helpers/ListProducts"
 import Card from "./Card"
 
 const CardList = () => {
     return (
-        <div>
+        <div className="flex m-4 h-100">
             {
-                productsToPreLoad && productsToPreLoad.map((product) => {
+                ListProducts && ListProducts.map((product) => {
                     return <Card key={product.id} {...product}></Card>
                 })
             }
