@@ -8,11 +8,11 @@ const NavBar = () => {
     return (
         <div className="bg-gray-300 flex p-3 justify-between items-center font-bold text-black">
             <div className="ml-10">
-                <section className="flex items-center">
+                <Link href="/" className="flex items-center">
                     <Image src={logo} width={50} alt="logoCafe" />
                     <span className="text-orange-600">Coffee</span>
                     <span className="text-black">Late</span>
-                </section>
+                </Link>
             </div>
             <div className="p-4 justify-evenly rounded-full bg-white">
                 <section className=" ">
@@ -26,7 +26,7 @@ const NavBar = () => {
                 </section>
             </div>
             <div className=" hover:text-orange-600 mr-10">
-                Cart
+                Profile
             </div>
         </div>
     )
