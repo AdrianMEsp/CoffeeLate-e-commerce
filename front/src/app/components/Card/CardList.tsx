@@ -3,7 +3,7 @@ import Card from "./Card"
 
 const CardList = () => {
     return (
-        <div className="flex m-4 h-100">
+        <div className="flex m-4 overflow-x-auto no-scrollbar space-x-4 p-4">
             {
                 ListProducts && ListProducts.map((product) => {
                     return <Card key={product.id} {...product}></Card>

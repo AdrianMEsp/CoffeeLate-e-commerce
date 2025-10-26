@@ -6,13 +6,15 @@ import CardProp from "./components/CardProp/CardProp"
 import CafeBg from "./../assets/coffeeField.jpg"
 import Link from "next/link"
 import { ListProperties } from "./helpers/ListProperties"
-import { ListProducts } from "./helpers/ListProducts"
+import Carousel from "./components/Carousel/Carousel"
 
 export default function Home() {
 
 
     return (
         <main>
+
+            {/* <Carousel/> */}
 
             <div className="flex justify-between bg-gray-300 border-2 rounded border-black">
                 <div>
@@ -33,7 +35,7 @@ export default function Home() {
             {/* Properties */}
             <div>
                 <div>
-                    <div className="flex justify-evenly h-70">
+                    <div className="flex justify-evenly h-70 overflow-x-auto no-scrollbar">
                         {ListProperties.map((propertie) => {
                             return <CardProp key={propertie.id} {...propertie}></CardProp>
                         })}

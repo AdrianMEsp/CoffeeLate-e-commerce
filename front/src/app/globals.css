@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "flowbite";
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -19,4 +20,12 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
