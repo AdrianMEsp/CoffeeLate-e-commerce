@@ -7,7 +7,7 @@ import Image from "next/image";
 const NavBar = () => {
     return (
         <div className="bg-gray-300 flex p-3 justify-between items-center font-bold text-black">
-            <div className="ml-10">
+            <div className="ml-2">
                 <Link href="/" className="flex items-center">
                     <Image src={logo} width={50} alt="logoCafe" />
                     <span className="text-orange-600">Coffee</span>
@@ -25,7 +25,7 @@ const NavBar = () => {
                     })}
                 </section>
             </div>
-            <div className=" hover:text-orange-600 mr-10">
+            <div className=" hover:text-orange-600 mr-2">
                 Profile
             </div>
         </div>
