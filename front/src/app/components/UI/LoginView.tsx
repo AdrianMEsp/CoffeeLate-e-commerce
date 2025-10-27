@@ -1,14 +1,14 @@
 'use client'
 
 import React from 'react'
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { validateLoginForm } from '@/utils/validate';
 import SubmitButton from '../SubmitButton/SubmitButton';
-import ErrorMessageCustom from '../ErrorMessageCustom/ErrorMessageCustom'
+import FieldCustom from '../FieldCustom/FieldCustom'
 
 function LoginView() {
     return (
-        <div>
+        <div className='form-bg'>
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validate={validateLoginForm}
@@ -18,34 +18,11 @@ function LoginView() {
             >
                 {({ errors }) => (
                     <Form
-                        className="flex flex-col justify-center items-center my-6
-                    
-                    "
+                        className="flex flex-col justify-center items-center my-6 h-100"
                     >
-                        <div className='w-1-2 md:w-1/3'>
-                            <label
-                                className='flex self-start'
-                            >First Name</label>
-                            <Field
-                                className="mb-5 w-full rounded text-black "
-                                name="email"
-                                placeholder="johnHandcock@mail.com"
-                                type="email" />
-                            <ErrorMessageCustom name="email" component="div" />
-                        </div>
+                        <FieldCustom label="Email" nameField="email" type="email" placeholder="johnHandcock@mail.com" />
 
-                        <div className='w-1-2 md:w-1/3'>
-                            <label
-                                className='flex self-start'
-                            >Password</label>
-                            <Field
-                                className="mb-5 w-full rounded text-black"
-                                name="password"
-                                placeholder="*******"
-                                type="password"
-                            />
-                            <ErrorMessageCustom name="password" component="div" />
-                        </div>
+                        <FieldCustom label="Password" nameField="password" type="password" placeholder="*******" />
 
                         <SubmitButton text="Login" disabled={errors.email || errors.password ? true : false} />
                     </Form>

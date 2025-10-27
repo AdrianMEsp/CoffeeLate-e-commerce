@@ -11,18 +11,18 @@ export const validateLoginForm = (values: ILoginProps) => {
         errors.email = 'Invalid email address';
     }
     if (!values.password) {
-        errors.email = 'Required';
+        errors.password = 'Required';
     }
     if (values.password.length < 6) {
-        errors.email = 'Most have 6 or + caracters';
+        errors.password = 'Most have 6 or + caracters';
     }
     return errors;                   
 }
 
 export const validateSchemaRegister = Yup.object({
         email: Yup.string().email('Invalid email address').required('Required'),
-        password: Yup.string().required('Required'),
+        password: Yup.string().min(6, 'Most have 6 or + caracters').required('Required'),
         name: Yup.string().required('Required'),
         address: Yup.string().required('Required'),
-        phone: Yup.string().required('Required'),
+        phone: Yup.string().required('Required').matches(/^[0-9]+$/, "Must be only digits")
     })
