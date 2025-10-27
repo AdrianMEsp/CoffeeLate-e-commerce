@@ -1,39 +1,53 @@
 'use client'
 
 import React from 'react'
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { validateLoginForm } from '@/utils/validate';
+import SubmitButton from '../SubmitButton/SubmitButton';
+import ErrorMessageCustom from '../ErrorMessageCustom/ErrorMessageCustom'
 
 function LoginView() {
     return (
         <div>
-            <Formik initialValues={{ email: '', password: '' }}
+            <Formik
+                initialValues={{ email: '', password: '' }}
                 validate={validateLoginForm}
-
                 onSubmit={(values) => {
                     alert("Envio de form exitoso")
                 }}
             >
                 {({ errors }) => (
-                    <Form>
-                        <label>First Name</label>
-                        <Field
-                            name="email"
-                            placeholder="johnHandcock@mail.com"
-                            type="email" />
-                        <ErrorMessage name="email" component="div" />
+                    <Form
+                        className="flex flex-col justify-center items-center my-6
+                    
+                    "
+                    >
+                        <div className='w-1-2 md:w-1/3'>
+                            <label
+                                className='flex self-start'
+                            >First Name</label>
+                            <Field
+                                className="mb-5 w-full rounded text-black "
+                                name="email"
+                                placeholder="johnHandcock@mail.com"
+                                type="email" />
+                            <ErrorMessageCustom name="email" component="div" />
+                        </div>
 
-                        <label>Password</label>
-                        <Field
-                            name="password"
-                            placeholder="*******"
-                            type="password"
-                        />
-                        <ErrorMessage name="password" component="div" />
+                        <div className='w-1-2 md:w-1/3'>
+                            <label
+                                className='flex self-start'
+                            >Password</label>
+                            <Field
+                                className="mb-5 w-full rounded text-black"
+                                name="password"
+                                placeholder="*******"
+                                type="password"
+                            />
+                            <ErrorMessageCustom name="password" component="div" />
+                        </div>
 
-                        <button type="submit" disabled={errors.email || errors.password ? true : false}>
-                            Submit
-                        </button>
+                        <SubmitButton text="Login" disabled={errors.email || errors.password ? true : false} />
                     </Form>
                 )}
             </Formik>
