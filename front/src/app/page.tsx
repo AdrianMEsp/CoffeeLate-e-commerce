@@ -16,7 +16,7 @@ export default function Home() {
 
             <Carousel />
 
-            <div className="flex justify-between bg-gray-300 border-2 rounded border-black">
+            <div className="flex justify-between bg-gray-300 border-2 rounded border-blackPrimary">
                 <div className="hidden md:block">
                     <Image src={coffee} alt="" />
                 </div>
@@ -65,7 +65,7 @@ export default function Home() {
                     ">Best coffee shop in Argentina</p>
                     <p className="mt-2 md:mt-0 ">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
                     <Link href={"/about"}
-                        className="p-3 w-35 border rounded bg-linear-to-r from-amber-700 text-center mt-2 md:mt-0">Read More!</Link>
+                        className="p-3 w-35 border rounded bg-linear-to-r from-orangeThree text-center mt-2 md:mt-0">Read More!</Link>
                 </div>
             </div>
 

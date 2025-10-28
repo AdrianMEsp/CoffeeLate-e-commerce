@@ -2,7 +2,6 @@ import Image from "next/image";
 import logo from "../../../assets/granoCafeLogo.png"
 import icon1 from "../../../assets/blackBag.png"
 import icon2 from "../../../assets/bolsaCafe (2).png"
-import back from "../../../assets/granos.png"
 
 const Footer = () => {
     return (
@@ -13,8 +12,8 @@ const Footer = () => {
                     <div className="flex items-center">
                         <Image src={logo} alt="" className="w-20"/>
                         <div className="text-5xl">
-                            <span className="text-orange-600">Coffee</span>
-                            <span className="text-black">Late</span>
+                            <span className="text-orangeTwo">Coffee</span>
+                            <span className="text-blackPrimary">Late</span>
                         </div>
                     </div>
                     <p className="justify-self-center font-semibold">The managing of real coffee made by the <br />

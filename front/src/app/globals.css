@@ -11,10 +11,13 @@
 
 @theme inline {
   --color-blackPrimary: #000000;
-  --color-orangeOne: #DD6B20;
-  --color-orangeTwo: #C05621; 
-  --color-orangeThree:#9C4221 ;
-  --color-orangeFour: #7B341E;
+  --color-yellow: #FBD38D; /* amber 200 */
+  --color-lightOrange: #ED8936; /* orange 400 */ 
+  --color-orangeOne: #DD6B20; /* amber 500 */
+  --color-orangeTwo: #C05621; /* amber 600 */
+  --color-orangeThree:#9C4221 ; /* amber 700 */
+  --color-orangeFour: #7B341E; /* amber 800 */
+  --color-error: #EF4444; 
   --color-yellow:;
   --color-whitePrimary: #FFFFFF;
 }
