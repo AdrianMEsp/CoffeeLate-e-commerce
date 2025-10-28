@@ -1,11 +1,22 @@
 @import "tailwindcss";
 @import "flowbite";
+@import "flowbite/src/themes/default";
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@theme inline {
+  --color-blackPrimary: #000000;
+  --color-orangeOne: #DD6B20;
+  --color-orangeTwo: #C05621; 
+  --color-orangeThree:#9C4221 ;
+  --color-orangeFour: #7B341E;
+  --color-yellow:;
+  --color-whitePrimary: #FFFFFF;
 }
 
 body {
@@ -28,13 +39,15 @@ body {
   background-image: url('../assets/coffeBackGround.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.4; /*  Solo esta capa se vuelve translúcida */
+  opacity: 0.4;
+  /*  Solo esta capa se vuelve translúcida */
   z-index: 0;
 }
 
-.form-bg > * {
+.form-bg>* {
   position: relative;
-  z-index: 10; /*  El contenido queda por encima */
+  z-index: 10;
+  /*  El contenido queda por encima */
 }
 
 
@@ -52,19 +65,62 @@ body {
   background-image: url('../assets/granos.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.4; /*  Solo esta capa se vuelve translúcida */
+  opacity: 0.4;
+  /*  Solo esta capa se vuelve translúcida */
   z-index: 0;
 }
 
-.footer-bg > * {
+.footer-bg>* {
   position: relative;
-  z-index: 10; /*  El contenido queda por encima */
+  z-index: 10;
+  /*  El contenido queda por encima */
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+@media (max-width: 767px) {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+@media (min-width: 768px) {
+  .no-scrollbar::-webkit-scrollbar {
+    height: 12px;             /* altura de la scrollbar horizontal */
+  }
+  .no-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.25);
+    border-radius: 8px;
+  }
+  .no-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+.notFound-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.notFound-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/derrameCafe.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  /*  Solo esta capa se vuelve translúcida */
+  z-index: 0;
+}
+
+.notFound-bg>* {
+  position: relative;
+  z-index: 10;
+  /*  El contenido queda por encima */
 }

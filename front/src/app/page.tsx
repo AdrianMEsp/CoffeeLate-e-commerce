@@ -14,10 +14,10 @@ export default function Home() {
     return (
         <main>
 
-            {/* <Carousel/> */}
+            <Carousel />
 
             <div className="flex justify-between bg-gray-300 border-2 rounded border-black">
-                <div>
+                <div className="hidden md:block">
                     <Image src={coffee} alt="" />
                 </div>
                 <div className="text-black font-bold text-shadow-gray-800 
@@ -35,7 +35,9 @@ export default function Home() {
             {/* Properties */}
             <div>
                 <div>
-                    <div className="flex justify-evenly h-70 overflow-x-auto no-scrollbar">
+                    <div className="flex md:flex-row md:justify-evenly md:h-60 md:overflow-x-auto no-scrollbar
+                        flex-wrap
+                    ">
                         {ListProperties.map((propertie) => {
                             return <CardProp key={propertie.id} {...propertie}></CardProp>
                         })}
@@ -46,19 +48,24 @@ export default function Home() {
             {/* Productos */}
             <div>
                 <p className="font-bold text-6xl mt-6 text-center">Our Products</p>
-                <CardList/>
+                <CardList />
             </div>
 
             {/* Field */}
-            <div className="flex p-6 bg-linear-to-b to-neutral-800">
-                <div className="w-1/2">
+            <div className="flex flex-col p-6 bg-linear-to-b to-neutral-800
+                            md:flex-row ">
+                <div className="w-full
+                                md:w-1/2">
                     <Image src={CafeBg} alt="holi" className="rounded-2xl" />
                 </div>
-                <div className="ml-6 w-1/2 flex justify-between flex-col items-center">
-                    <p className="font-bold text-6xl ">Best coffee shop in Argentina</p>
-                    <p className="">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
+                <div className="ml-2 w-full flex justify-between flex-col items-center
+                                md:ml-8 md:w-1/2 ">
+                    <p className="font-bold text-6xl mt-2 md:mt-0
+
+                    ">Best coffee shop in Argentina</p>
+                    <p className="mt-2 md:mt-0 ">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
                     <Link href={"/about"}
-                        className="p-3 w-35 border rounded bg-linear-to-r from-amber-700 text-center">Read More!</Link>
+                        className="p-3 w-35 border rounded bg-linear-to-r from-amber-700 text-center mt-2 md:mt-0">Read More!</Link>
                 </div>
             </div>
 

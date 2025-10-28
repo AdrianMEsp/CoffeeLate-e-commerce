@@ -5,7 +5,7 @@ import "flowbite";
 export default function Carousel() {
   return (
     <div id="default-carousel" className="relative max-w-full" data-carousel="slide">
-      <div className="relative overflow-hidden rounded-lg md:h-40">
+      <div className="relative overflow-hidden rounded-lg h-60 md:h-40">
         <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
           <Image src="/assets/carousel1.png" alt="Slide 1" fill className="object-cover" />
         </div>
