@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginView from '../components/UI/LoginView'
+import LoginView from '../UI/LoginView'
 
 function Login() {
   return (

@@ -3,15 +3,15 @@
 import React from 'react'
 import { Form, Formik } from 'formik';
 import { validateSchemaRegister } from '@/utils/validate';
-import SubmitButton from '../SubmitButton/SubmitButton';
-import FieldCustom from '../FieldCustom/FieldCustom'
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
+import FieldCustom from '../../components/FieldCustom/FieldCustom'
 
 function RegisterView() {
 
     return (
         <div className='form-bg'>
             <Formik
-                initialValues={{ email: '', password: '', name: '', address: '', phone: '' }}
+                initialValues={{ email: '', password: '', validatePassword: '', name: '', address: '', phone: '' }}
                 validationSchema={validateSchemaRegister}
                 onSubmit={(values) => {
                     alert("Envio de form exitoso")
@@ -25,6 +25,8 @@ function RegisterView() {
 
                         <FieldCustom label="Password:" nameField="password" type="password" placeholder="*******" />
 
+                        <FieldCustom label="Validate Password:" nameField="validatePassword" type="password" placeholder="*******" />
+
                         <FieldCustom label="Full Name:" nameField="name" type="text" placeholder="John Handcock" />
 
                         <FieldCustom label="Address:" nameField="address" type="text" placeholder="123 Av Mitre" />
@@ -34,9 +36,12 @@ function RegisterView() {
                         <SubmitButton text="Register" disabled={
                             errors.email
                                 || errors.password
+                                || errors.validatePassword
                                 || errors.address
                                 || errors.name
-                                || errors.phone ? true : false} />
+                                || errors.phone 
+                                
+                                ? true : false} />
                     </Form>
                 )}
             </Formik>

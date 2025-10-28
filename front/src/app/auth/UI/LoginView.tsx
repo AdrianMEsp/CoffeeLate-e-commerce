@@ -3,8 +3,8 @@
 import React from 'react'
 import { Form, Formik } from 'formik';
 import { validateLoginForm } from '@/utils/validate';
-import SubmitButton from '../SubmitButton/SubmitButton';
-import FieldCustom from '../FieldCustom/FieldCustom'
+import SubmitButton from '../../components/SubmitButton/SubmitButton';
+import FieldCustom from '../../components/FieldCustom/FieldCustom'
 
 function LoginView() {
     return (

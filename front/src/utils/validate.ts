@@ -22,6 +22,7 @@ export const validateLoginForm = (values: ILoginProps) => {
 export const validateSchemaRegister = Yup.object({
         email: Yup.string().email('Invalid email address').required('Required'),
         password: Yup.string().min(6, 'Most have 6 or + caracters').required('Required'),
+        validatePassword: Yup.string().oneOf([Yup.ref('password')], "Passwords must be equals"),
         name: Yup.string().required('Required'),
         address: Yup.string().required('Required'),
         phone: Yup.string().required('Required').matches(/^[0-9]+$/, "Must be only digits")
