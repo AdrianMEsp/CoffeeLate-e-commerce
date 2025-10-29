@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
- import { IProduct } from "@/types"
+import { IProduct } from "@/types"
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL
 

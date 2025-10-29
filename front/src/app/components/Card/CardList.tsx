@@ -1,5 +1,5 @@
 /* import {ListProducts} from "../../helpers/ListProducts" */
-import { getProdutsDB } from "@/utils/products.helper"
+import { getProdutsDB } from "@/services/products.services"
 import Card from "./Card"
 import Link from "next/link";
 

@@ -1,27 +1,31 @@
-import { getProductById } from "@/utils/products.helper";
+import { getProductById } from "@/services/products.services";
+import { IProduct } from "@/types";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 interface ProductDetailProps {
     params: {
         productID: string;
     }
-
 }
-
 
 const ProductPage = async ({ params }: ProductDetailProps) => {
 
     const { productID } = await params;
 
-    const product = await getProductById(productID)
-   /* const product = ListProducts[1] */
+    let product: IProduct
+    try {
+        product = await getProductById(productID)
+    } catch (error) {
+        notFound()
+    }
 
     return (
 
-        <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+        <section className="py-8 bg-orangeFour md:py-16  antialiased">
             <div className="max-w-7xl px-4 mx-auto 2xl:px-0 flex justify-center">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16 flex items-center">
-                <Image src={product.image} width={200} height={200}  alt={product.name} className=""/>
+                    <Image src={product.image} width={200} height={200} alt={product.name} className="" />
                     <div className="mt-6 sm:mt-8 lg:mt-0">
                         {/* Nombre del producto */}
                         <h1
@@ -35,7 +39,7 @@ const ProductPage = async ({ params }: ProductDetailProps) => {
                             <p
                                 className="text-2xl font-extrabold text-gray-900 sm:text-3xl dark:text-white"
                             >
-                                {product.price}
+                                ${product.price}
                             </p>
                         </div>
 
@@ -43,7 +47,10 @@ const ProductPage = async ({ params }: ProductDetailProps) => {
                             <a
                                 href="#"
                                 title=""
-                                className="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                className="flex items-center justify-center py-2.5 px-5 text-sm font-medium
+                                 text-blackPrimary  bg-white rounded-lg border border-blackPrimary
+                                  hover:bg-orangeThree hover:text-primary-700 
+                                      "
                                 role="button"
                             >
                                 <svg
