@@ -7,15 +7,11 @@ interface ICategory {
 }
 
 const categoriesToPreLoad: ICategory[] = [
-    { name: 'Smartphones' },
-    { name: 'Laptops' },
-    { name: 'Tablets' },
-    { name: 'Headphones' },
-    { name: 'Cameras' },
-    { name: 'Printers' },
-    { name: 'Monitors' },
-    { name: 'Storage' },
-    { name: 'Accessories' }
+    { name: 'Whole Bean Coffee' },
+    { name: 'Ground Coffee' },
+    { name: 'Coffee Capsules' },
+    { name: 'Instant/Soluble Coffee' },
+    { name: 'Specialty/Gourmet Coffee' }
 ];
 
 export const preLoadCategories = async () => {

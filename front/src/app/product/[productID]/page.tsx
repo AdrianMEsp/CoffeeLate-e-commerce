@@ -1,4 +1,4 @@
-import {ListProducts} from "../../helpers/ListProducts"
+import { getProductById } from "@/utils/products.helper";
 import Image from "next/image";
 
 interface ProductDetailProps {
@@ -12,7 +12,9 @@ interface ProductDetailProps {
 const ProductPage = async ({ params }: ProductDetailProps) => {
 
     const { productID } = await params;
-    const product = ListProducts[1]
+
+    const product = await getProductById(productID)
+   /* const product = ListProducts[1] */
 
     return (
 

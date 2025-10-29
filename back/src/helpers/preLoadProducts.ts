@@ -10,7 +10,7 @@ interface IProduct {
   categoryId: number;
   stock: number;
 }
-
+/* 
 const productsToPreLoad: IProduct[] = [
   {
     name: "iPhone 11",
@@ -72,7 +72,51 @@ const productsToPreLoad: IProduct[] = [
     categoryId: 6,
     stock: 10,
   },
+]; */
+
+const productsToPreLoad: IProduct[] = [
+  { name: "Andes Premium Coffee", price: 1499, description: "High-altitude coffee with rich flavor.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 45 },
+  { name: "Valley Smooth Coffee", price: 1250, description: "Soft aroma with fruity notes.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 67 },
+  { name: "Intense Espresso Roast", price: 1599, description: "Strong roast with full body.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 39 },
+  { name: "Organic Sierra Coffee", price: 1625, description: "Organic beans, smooth balance.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 82 },
+  { name: "Natural Decaf Coffee", price: 1340, description: "Full flavor, caffeine-free.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 54 },
+  { name: "House Blend Coffee", price: 1199, description: "Classic everyday blend.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 70 },
+  { name: "Special Reserve Coffee", price: 1850, description: "Single-origin selected beans.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 28 },
+  { name: "Mountain Gourmet Coffee", price: 1799, description: "Medium roast, sweet notes.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 91 },
+  { name: "Fine Ground Coffee", price: 1299, description: "Perfect for espresso lovers.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 32 },
+  { name: "Coarse Ground Coffee", price: 1299, description: "Ideal for French press brewing.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 88 },
+  { name: "Caramel Blend Coffee", price: 1450, description: "Sweet and creamy aroma.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 63 },
+  { name: "Dark Chocolate Roast", price: 1475, description: "Deep roast with cocoa tones.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 77 },
+  { name: "Floral Aroma Coffee", price: 1380, description: "Light acidity and floral scent.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 49 },
+  { name: "Toasted Nut Coffee", price: 1520, description: "Warm, nutty flavor.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 21 },
+  { name: "Honey Forest Coffee", price: 1610, description: "Sweet honey and nut notes.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 74 },
+  { name: "Black Premium Bag", price: 999, description: "Durable bag for storing beans.", image: "/assets/blackBag.png", categoryId: 2, stock: 57 },
+  { name: "Pink Limited Bag", price: 1050, description: "Modern and elegant design.", image: "/assets/pinkBag.png", categoryId: 2, stock: 65 },
+  { name: "Reusable Coffee Bag", price: 890, description: "Keeps aroma fresh longer.", image: "/assets/bolsaCafe (3).png", categoryId: 2, stock: 42 },
+  { name: "Traditional Field Coffee", price: 1199, description: "Classic handmade taste.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 86 },
+  { name: "Sweet Natural Coffee", price: 1325, description: "Soft and naturally sweet.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 59 },
+  { name: "Dark Strong Coffee", price: 1599, description: "Bold and powerful roast.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 34 },
+  { name: "Morning Light Coffee", price: 1175, description: "Perfect way to start the day.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 79 },
+  { name: "Signature Farm Coffee", price: 1999, description: "Exclusive farm-grown beans.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 25 },
+  { name: "Serrano Bold Roast", price: 1650, description: "Rich body and deep flavor.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 92 },
+  { name: "Mild Sunrise Coffee", price: 1240, description: "Balanced and easy to drink.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 48 },
+  { name: "Golden Roast Coffee", price: 1725, description: "Special edition golden pack.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 76 },
+  { name: "Old Farm Classic", price: 1399, description: "Traditional family recipe.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 61 },
+  { name: "Tropical Blend Coffee", price: 1430, description: "Citrus and exotic tones.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 51 },
+  { name: "Southern Reserve Coffee", price: 1820, description: "Medium roast, floral finish.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 84 },
+  { name: "Classic Moka Coffee", price: 1375, description: "Perfect balance of flavor.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 47 },
+  { name: "Colombian Origin Coffee", price: 1790, description: "Sweet finish, strong aroma.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 72 },
+  { name: "Italian Espresso Roast", price: 1680, description: "European style espresso roast.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 44 },
+  { name: "Summer Special Coffee", price: 1410, description: "Perfect for iced or cold brew.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 67 },
+  { name: "Dulce de Leche Coffee", price: 1550, description: "Creamy caramel touch.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 31 },
+  { name: "Cinnamon Blend Coffee", price: 1499, description: "Warm and aromatic taste.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 66 },
+  { name: "Forest Intense Roast", price: 1760, description: "Cocoa and wood aroma.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 53 },
+  { name: "Golden Honey Coffee", price: 1620, description: "Naturally sweet and smooth.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 81 },
+  { name: "Black Classic Bag", price: 899, description: "Ideal for coffee packaging.", image: "/assets/blackBag.png", categoryId: 2, stock: 90 },
+  { name: "Pink Coffee Lovers Bag", price: 949, description: "Stylish and modern look.", image: "/assets/pinkBag.png", categoryId: 2, stock: 36 },
+  { name: "Reinforced Premium Bag", price: 1099, description: "Durable and reusable bag.", image: "/assets/blackBag.png", categoryId: 2, stock: 58 },
 ];
+
 
 export const preLoadProducts = async () => {
   const products = await ProductRepository.find();
