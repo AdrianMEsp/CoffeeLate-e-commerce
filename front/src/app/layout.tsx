@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "./components/NavBar/NavBar"
 import Footer from "./components/Footer/Footer"
 import "flowbite";
+import { AuthProvider } from "@/context/AuthContext";
 
 
 const geistSans = Geist({
@@ -31,9 +32,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar></NavBar>
-        {children}                                  {/* esto es toda la pagina */}
-        <Footer></Footer>
+        <AuthProvider>
+          <NavBar />
+            {children}                                  {/* esto es toda la pagina */}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,12 +1,26 @@
+'use client'
+
 import CartPage from "@/app/cart/page";
 import { NavItems } from "@/app/helpers/NavItems";
 import Link from "next/link";
 import logo from "../../../assets/granoCafeLogo.png"
 import Image from "next/image";
+import { useAuth } from "@/context/AuthContext";
 
 const NavBar = () => {
-    return (
-        <nav className="bg-gray-300 font-bold text-blackPrimary">
+
+  /* const [userData, setUserData] = useState()
+  const pathname = usePathname() //para que actualice el navbar,sino no se entera
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("userSession")!)
+    setUserData(data)
+  }, [pathname]) */
+
+  const { userData, logout } = useAuth();
+
+  return (
+    <nav className="bg-gray-300 font-bold text-blackPrimary">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         {/* Logo */}
@@ -62,9 +76,40 @@ const NavBar = () => {
             })}
           </ul>
         </div>
+
+
+
+        {userData ? (
+          <p>{userData.user.name}</p>
+        ) : (
+        <Link href={'/auth/login'}>Login</Link>
+        )}
+        {userData && <button onClick={logout}>Logout</button>}
+
+
+        {/* estos link de abajo voy a tener que implementarlos arriba en lugar de un map 
+si el usuario esta logeado mostrar Home, Cart
+si no esta logeado mostrar login y register
+*/}
+        {
+          userData?.token ? (
+            <div className="flex items-center justify-end gap-3">
+              <Link className="hidden items-center justify-center rounded px-3 py-2 text-sm font-semibold"
+                href="/">Home</Link>
+              <Link className="inline-flex items-center justify-center rounded px-3 py-2 text-sm font-semibold"
+                href="/cart">Cart</Link>
+            </div>
+          ) : (
+            <div className="flex items-center justify-end gap-3">
+              <Link className="hidden items-center justify-center rounded px-3 py-2 text-sm font-semibold"
+                href="/auth/login"> Sign in</Link>
+              <Link className="inline-flex items-center justify-center rounded px-3 py-2 text-sm font-semibold"
+                href="/auth/register"> Login</Link>
+            </div>)
+        }
       </div>
     </nav>
-    )
+  )
 }
 
 export default NavBar;

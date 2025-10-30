@@ -38,3 +38,17 @@ export interface IRegister {
   address: string;
   phone:string
 }
+
+export interface IUser{
+  id:number,
+  name: string;
+  email:string;
+  address: string;
+  phone:string
+  role: string;
+}
+
+export interface IUserSession {
+  token: string,
+  user: IUser
+}

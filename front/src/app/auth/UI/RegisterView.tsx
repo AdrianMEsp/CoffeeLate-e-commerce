@@ -5,16 +5,21 @@ import { Form, Formik } from 'formik';
 import { validateSchemaRegister } from '@/utils/validate';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import FieldCustom from '../../components/FieldCustom/FieldCustom'
+import { register } from '@/utils/auth.helper';
+import { useRouter } from 'next/navigation';
 
 function RegisterView() {
+    const router = useRouter()
 
     return (
         <div className='form-bg'>
             <Formik
                 initialValues={{ email: '', password: '', validatePassword: '', name: '', address: '', phone: '' }}
                 validationSchema={validateSchemaRegister}
-                onSubmit={(values) => {
-                    alert("Envio de form exitoso")
+                onSubmit={async (values, {resetForm}) => {
+                    await register(values)
+                    resetForm();
+                    router.push("/auth/login")
                 }}
             >
                 {({ errors }) => (
