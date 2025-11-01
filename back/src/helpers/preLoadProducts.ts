@@ -77,9 +77,9 @@ const productsToPreLoad: IProduct[] = [
 const productsToPreLoad: IProduct[] = [
   { name: "Andes Premium Coffee", price: 1499, description: "High-altitude coffee with rich flavor.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 45 },
   { name: "Valley Smooth Coffee", price: 1250, description: "Soft aroma with fruity notes.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 67 },
-  { name: "Intense Espresso Roast", price: 1599, description: "Strong roast with full body.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 39 },
-  { name: "Organic Sierra Coffee", price: 1625, description: "Organic beans, smooth balance.", image: "/assets/bolsaCafe (4).png", categoryId: 1, stock: 82 },
-  { name: "Natural Decaf Coffee", price: 1340, description: "Full flavor, caffeine-free.", image: "/assets/bolsaCafe (5).png", categoryId: 1, stock: 54 },
+  { name: "Intense Espresso Roast", price: 1599, description: "Strong roast with full body.", image: "/assets/bolsaCafe (3).png", categoryId: 3, stock: 39 },
+  { name: "Organic Sierra Coffee", price: 1625, description: "Organic beans, smooth balance.", image: "/assets/bolsaCafe (4).png", categoryId: 4, stock: 82 },
+  { name: "Natural Decaf Coffee", price: 1340, description: "Full flavor, caffeine-free.", image: "/assets/bolsaCafe (5).png", categoryId: 5, stock: 54 },
   { name: "House Blend Coffee", price: 1199, description: "Classic everyday blend.", image: "/assets/bolsaCafe (2).png", categoryId: 1, stock: 70 },
   { name: "Special Reserve Coffee", price: 1850, description: "Single-origin selected beans.", image: "/assets/bolsaCafe (1).png", categoryId: 1, stock: 28 },
   { name: "Mountain Gourmet Coffee", price: 1799, description: "Medium roast, sweet notes.", image: "/assets/bolsaCafe (3).png", categoryId: 1, stock: 91 },

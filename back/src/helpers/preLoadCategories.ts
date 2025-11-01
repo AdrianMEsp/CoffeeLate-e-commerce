@@ -11,7 +11,8 @@ const categoriesToPreLoad: ICategory[] = [
     { name: 'Ground Coffee' },
     { name: 'Coffee Capsules' },
     { name: 'Instant/Soluble Coffee' },
-    { name: 'Specialty/Gourmet Coffee' }
+    { name: 'Specialty/Gourmet Coffee' },
+    { name: 'Not coffee'}
 ];
 
 export const preLoadCategories = async () => {
