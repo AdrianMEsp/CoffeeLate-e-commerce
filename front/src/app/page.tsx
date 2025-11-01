@@ -1,74 +1,72 @@
-import React from "react"
+"use client"
+import { getProdutsDB } from "@/services/products.services"
+import { IProduct } from "@/types"
+import { useState, useEffect } from "react"
 import CardList from "./components/Card/CardList"
-import Image from "next/image"
-import coffee from "./../assets/coffeBackground-Vertical-removebg-preview.png"
-import CardProp from "./components/CardProp/CardProp"
-import CafeBg from "./../assets/coffeeField.jpg"
 import Link from "next/link"
-import { ListProperties } from "./helpers/ListProperties"
-import Carousel from "./components/Carousel/Carousel"
+import Card from "./components/Card/Card"
+import { ListProducts } from "./helpers/ListProducts"
 
-export default function Home() {
+export default function ProductsPage() {
+    const [products, setProducts] = useState<IProduct[]>([])
+    const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null)
 
+    useEffect(() => {
+        async function fetchProducts() {
+            const data: IProduct[] = await getProdutsDB();
+            setProducts(data)
+        }
+        fetchProducts()
+    }, [])
+
+    const filtered = selectedCategoryId
+        ? products.filter(p => p.categoryId === selectedCategoryId)
+        : products
+
+    const categories = [
+        { id: 1, name: 'Whole Bean Coffee' },
+        { id: 2, name: 'Ground Coffee' },
+        { id: 3, name: 'Coffee Capsules' },
+        { id: 4, name: 'Instant/Soluble Coffee' },
+        { id: 5, name: 'Specialty/Gourmet Coffee' },
+        { id: 6, name: 'Not coffee' }
+    ];
+
+    const handleCategoryClick = (categoryName: string) => {
+        const category = categories.find(c => c.name === categoryName)
+        setSelectedCategoryId(category ? category.id : null)
+    }
 
     return (
-        <main>
+        <div className="flex">
+            {/* SIDEBAR */}
+            <aside className="bg-neutral-900 text-white p-4 pt-8 w-1/3 
+            md:w-1/5">
+                <h2 className="text-xl font-bold mb-4">Categories</h2>
+                <ul className="space-y-2">
+                    {categories.map(cat => (
+                        <li
+                            key={cat.id}>
+                            <button
+                                onClick={() => handleCategoryClick(cat.name)}
+                                className="hover:text-orangeTwo block"
+                            >
+                                {cat.name}
+                            </button>
+                        </li>
+                    ))}
+                    <li
+                        className="cursor-pointer text-orange-400"
+                        onClick={() => setSelectedCategoryId(null)}
+                    >
+                        Show All
+                    </li>
+                </ul>
+            </aside>
 
-            <Carousel />
+            {/* PRODUCTS */}
+            <CardList listProducts={filtered}/>
 
-            <div className="flex justify-between bg-gray-300 border-2 rounded border-blackPrimary">
-                <div className="hidden md:block">
-                    <Image src={coffee} alt="" />
-                </div>
-                <div className="text-black font-bold text-shadow-gray-800 
-                text-8xl mr-10 flex flex-col justify-center items-center">
-                    <p>Good Coffee <br />
-                        will always be </p>
-                    <div className="text-shadow-lg">
-                        <span className="text-yellow-300">Col</span>
-                        <span className="text-blue-900">omb</span>
-                        <span className="text-red-700">ian</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Properties */}
-            <div>
-                <div>
-                    <div className="flex md:flex-row md:justify-evenly md:h-60 md:overflow-x-auto no-scrollbar
-                        flex-wrap
-                    ">
-                        {ListProperties.map((propertie) => {
-                            return <CardProp key={propertie.id} {...propertie}></CardProp>
-                        })}
-                    </div>
-                </div>
-            </div>
-
-            {/* Productos */}
-            <div>
-                <p className="font-bold text-6xl mt-6 text-center">Our Products</p>
-                <CardList />
-            </div>
-
-            {/* Field */}
-            <div className="flex flex-col p-6 bg-linear-to-b to-neutral-800
-                            md:flex-row ">
-                <div className="w-full
-                                md:w-1/2">
-                    <Image src={CafeBg} alt="holi" className="rounded-2xl" />
-                </div>
-                <div className="ml-2 w-full flex justify-between flex-col items-center
-                                md:ml-8 md:w-1/2 ">
-                    <p className="font-bold text-6xl mt-2 md:mt-0
-
-                    ">Best coffee shop in Argentina</p>
-                    <p className="mt-2 md:mt-0 ">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
-                    <Link href={"/about"}
-                        className="p-3 w-35 border rounded bg-linear-to-r from-orangeThree text-center mt-2 md:mt-0">Read More!</Link>
-                </div>
-            </div>
-
-        </main>
+        </div>
     )
 }

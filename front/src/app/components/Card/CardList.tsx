@@ -1,25 +1,26 @@
 /* import {ListProducts} from "../../helpers/ListProducts" */
-import { getProdutsDB } from "@/services/products.services"
+import { IProduct } from "@/types";
 import Card from "./Card"
 import Link from "next/link";
 
-const CardList = async () => {
+interface CardListProps {
+    listProducts: IProduct[];
+}
 
-    const ListProducts = await getProdutsDB();
+const CardList = ({listProducts} : CardListProps) => {
 
     return (
-        <div className="flex m-4 overflow-x-auto space-x-4 p-4">
-            {
-                ListProducts && ListProducts.map((product) => {
-                    return (
-                    <Link key={product.id} href={`/product/${product.id}`} >
-                        <Card key={product.id} {...product}></Card>
+        <div  className="md:grid md:grid-cols-3 md:gap-2" >
+            {listProducts.map((product) => {
+                return (
+                    <Link className="" key={product.id} href={`/product/${product.id}`}>
+                            <Card {...product} />
                     </Link>
                 )
-                })
-            }
+            })}
         </div>
     )
+
 }
 
 export default CardList

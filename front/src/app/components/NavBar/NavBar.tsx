@@ -1,11 +1,11 @@
 'use client'
 
-import CartPage from "@/app/cart/page";
 import { NavItems } from "@/app/helpers/NavItems";
 import Link from "next/link";
 import logo from "../../../assets/granoCafeLogo.png"
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
 
@@ -18,17 +18,29 @@ const NavBar = () => {
   }, [pathname]) */
 
   const { userData, logout } = useAuth();
+  const pathname = usePathname();
+
+  const isLogin = pathname === "/auth/login"
+  const isRegister = pathname === "/auth/register"
 
   return (
     <nav className="bg-gray-300 font-bold text-blackPrimary">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center rtl:space-x-reverse">
+        {!(isLogin || isRegister) ? (
+          <Link href="/" className="flex items-center rtl:space-x-reverse">
+            <Image src={logo} width={50} alt="CoffeeLate Logo" />
+            <span className="text-orangeOne ml-1">Coffee</span>
+            <span className="text-blackPrimary">Late</span>
+          </Link>
+        ):(
+        <div className="flex items-center rtl:space-x-reverse">
           <Image src={logo} width={50} alt="CoffeeLate Logo" />
           <span className="text-orangeOne ml-1">Coffee</span>
           <span className="text-blackPrimary">Late</span>
-        </Link>
+        </div>
+        )}
 
         {/* Botón hamburguesa - solo visible en móvil */}
         <button
@@ -59,56 +71,47 @@ const NavBar = () => {
         </button>
 
         {/* Links de navegación */}
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul
-            className="font-medium flex flex-col  border border-blackPrimary bg-whitePrimary
-              md:p-3 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:items-center md:rounded-full"
-          >
-
-            {NavItems.map((route) => {
-              return (
-                <li key={route.id}>
-                  <Link href={route.route}
-                    className="block py-2 px-3 text-blackPrimary font-bold hover:text-orangeTwo"
-                  >{route.nameToRender}</Link>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-
-
-
         {userData ? (
-          <p>{userData.user.name}</p>
-        ) : (
-        <Link href={'/auth/login'}>Login</Link>
-        )}
-        {userData && <button onClick={logout}>Logout</button>}
+          <div>
+            <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul
+                className="font-medium flex flex-col  border border-blackPrimary bg-whitePrimary
+              md:p-3 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:items-center md:rounded-full"
+              >
+                {NavItems.map((route) => {
+                  return (
+                    <li key={route.id}>
+                      <Link href={route.route}
+                        className="block py-2 px-3 text-blackPrimary font-bold hover:text-orangeTwo"
+                      >{route.nameToRender}</Link>
+                    </li>
+                  )
 
+                })}
+              </ul>
 
-        {/* estos link de abajo voy a tener que implementarlos arriba en lugar de un map 
-si el usuario esta logeado mostrar Home, Cart
-si no esta logeado mostrar login y register
-*/}
-        {
-          userData?.token ? (
-            <div className="flex items-center justify-end gap-3">
-              <Link className="hidden items-center justify-center rounded px-3 py-2 text-sm font-semibold"
-                href="/">Home</Link>
-              <Link className="inline-flex items-center justify-center rounded px-3 py-2 text-sm font-semibold"
-                href="/cart">Cart</Link>
             </div>
-          ) : (
-            <div className="flex items-center justify-end gap-3">
-              <Link className="hidden items-center justify-center rounded px-3 py-2 text-sm font-semibold"
-                href="/auth/login"> Sign in</Link>
-              <Link className="inline-flex items-center justify-center rounded px-3 py-2 text-sm font-semibold"
-                href="/auth/register"> Login</Link>
-            </div>)
-        }
+          </div>
+        ) : (
+          <div className="ml-auto">
+            <div>
+              {isLogin && (
+                <Link className="hover:text-orangeTwo" href="/auth/register">
+                  Register
+                </Link>
+              )}
+              {isRegister && (
+                <Link className="hover:text-orangeTwo" href="/auth/login">
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
+        <p >Bienvenido {userData?.user.name.split(" ")[0]}</p>
+        {userData && <button className=" hover:text-error" onClick={logout}>Logout</button>}
       </div>
-    </nav>
+    </nav >
   )
 }
 

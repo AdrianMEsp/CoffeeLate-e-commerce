@@ -1,6 +1,7 @@
 'use client'
 
 import { IUserSession } from "@/types";
+import { useRouter } from "next/navigation";
 import { useContext, createContext, useState, useEffect } from "react"
 
 export interface IAuthContextProps {
@@ -21,21 +22,23 @@ export interface AuthProviderProps{
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const [userData, setUserData] = useState<IUserSession | null>(null);
-
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem("userSession")!)
-        setUserData(data)
-    }, [])
-
+    const router = useRouter();
+    
     useEffect(() => {
         if(userData){
             localStorage.setItem("userSession", JSON.stringify({token: userData.token, user: userData.user}))
         }
     }, [userData])
 
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem("userSession")!)
+        setUserData(data)
+    }, [])
+
     const logout = () => {
         setUserData(null)
         localStorage.removeItem("userSession")
+        router.push("/auth/login")
     }
 
     return (
