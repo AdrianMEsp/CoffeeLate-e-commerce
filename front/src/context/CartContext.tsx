@@ -25,7 +25,7 @@ const CartContex = createContext<CartContextProps>({
 });
 
 interface CartProvider {
-    children: React.ReactElement;
+    children: React.ReactNode;
 }
 
 export const CartProvider: React.FC<CartProvider> = ({ children }) => {
@@ -48,7 +48,7 @@ export const CartProvider: React.FC<CartProvider> = ({ children }) => {
     }, [])
 
     const addToCart = (product: IProduct) => {
-        if (!userData?.token) {
+        if (!userData) {
             alert(
                 "Debes iniciar sesion para agregar al carrito"
             )
@@ -59,7 +59,7 @@ export const CartProvider: React.FC<CartProvider> = ({ children }) => {
         if (productExist) {
             alert("Solo una unidad del mismo producto por orden")
             return;
-        } else { //quiza prevee que se agregue igualmente 
+        } else {
             setCartItems((prevItems) => [...prevItems, product])
             alert("Producto agregado al carrito")
         }

@@ -6,11 +6,14 @@ export default function DashboardLayout({
     children: React.ReactNode
 }) {
     return (
-        <section>
-            <Link href="/dashboard">Profile</Link>
-            <br />
-            <Link href="/dashboard/orders">Orders</Link> 
-            {children}
-        </section>
+        <div>
+            <div className="flex justify-evenly text-3xl">
+                <Link href="/dashboard/orders">Orders</Link>
+                <Link href="/dashboard">Profile</Link>
+            </div>
+            <div>
+                {children}
+            </div>
+        </div>
     )
 }

@@ -1,7 +1,8 @@
 'use client'
 
+import Order from "@/app/components/Order/Order";
 import { useAuth } from "@/context/AuthContext";
-import { IOrder, IProduct } from "@/types";
+import { IOrder } from "@/types";
 import { getOrders } from "@/utils/orders.helper";
 import { useEffect, useState } from "react";
 
@@ -23,23 +24,10 @@ const OrdersPage = () => {
 
     return (
         <div>
-            <div>
+            <div className="p-3 ">
                 {orders.length ? orders.map((order: IOrder) => {
                     return (
-                        <div key={order.id}>
-                            <p>Order: {order.id}</p>
-                            <p>Date: {new Date(order.date).toLocaleDateString()}</p>
-                            <p>Status: {order.status}</p>
-                            {
-                                order.products.map((product) => {
-                                    return (
-                                        <div key={product.id}>
-                                            <p>{product.name}</p>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
+                        <Order key={order.id} {...order}/>
                     )
                 }) : (
                     <div>No hay ordenes</div>

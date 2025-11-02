@@ -9,7 +9,7 @@ import Image from "next/image";
 const CartPage = () => {
 
     const { userData } = useAuth();
-    const { cartItems, addToCart, clearCart, getIdItems,
+    const { cartItems, clearCart, getIdItems,
         getItemsCount, getTotal, removeFromCart } = useCart();
 
     const handleCheckout = async () => {
@@ -79,17 +79,14 @@ const CartPage = () => {
                         </div>
 
                         <button onClick={handleCheckout} className="flex w-full items-center justify-center 
-                        rounded-lg bg-primary-700 cursor-pointer hover:text-orangeThree text-sm font-medium text-white hover:bg-primary-800 
-                        focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 
-                        dark:focus:ring-primary-800"
+                        cursor-pointer hover:text-orangeOne text-sm font-medium text-white 
+                        "
                             disabled={!userData} >
                             Proceed to Checkout
                         </button>
 
-                        <button onClick={clearCart}  className="flex w-full items-center justify-center 
-                        rounded-lg bg-primary-700  cursor-pointer text-sm font-medium hover:text-error text-red-950 hover:bg-primary-800 
-                        focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 
-                        dark:focus:ring-primary-800">
+                        <button onClick={clearCart}  className="flex w-full items-center justify-center
+                         cursor-pointer text-sm font-medium hover:text-error text-red-950">
                             Clear Cart
                         </button>
                     </div>

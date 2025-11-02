@@ -44,14 +44,13 @@ const ProductPage = async ({ params }: ProductDetailProps) => {
                         </div>
 
                         {/* Add to cart */}
-
                         <AddCartButton product={product}/>
 
 
-                        <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
+                        <hr className="my-6 md:my-8 border-gray-200 " />
 
                         {/* Descripcion del producto */}
-                        <p className="mb-6 text-gray-500 dark:text-gray-400">
+                        <p className="mb-6 text-blackPrimary">
                             {product.description}
                         </p>
                     </div>

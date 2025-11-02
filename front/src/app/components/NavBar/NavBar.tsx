@@ -26,12 +26,12 @@ const NavBar = () => {
             <span className="text-orangeOne ml-1">Coffee</span>
             <span className="text-blackPrimary">Late</span>
           </Link>
-        ):(
-        <div className="flex items-center rtl:space-x-reverse">
-          <Image src={logo} width={50} alt="CoffeeLate Logo" />
-          <span className="text-orangeOne ml-1">Coffee</span>
-          <span className="text-blackPrimary">Late</span>
-        </div>
+        ) : (
+          <div className="flex items-center rtl:space-x-reverse">
+            <Image src={logo} width={50} alt="CoffeeLate Logo" />
+            <span className="text-orangeOne ml-1">Coffee</span>
+            <span className="text-blackPrimary">Late</span>
+          </div>
         )}
 
         {/* Botón hamburguesa - solo visible en móvil */}
@@ -100,8 +100,14 @@ const NavBar = () => {
             </div>
           </div>
         )}
-        <p >Bienvenido {userData?.user.name.split(" ")[0]}</p>
-        {userData && <button className=" hover:text-error" onClick={logout}>Logout</button>}
+
+        {userData ? (
+          <>
+            <button className=" hover:text-error" onClick={logout}>Logout</button>
+            <p >Bienvenido {userData?.user.name.split(" ")[0]}</p>
+          </>
+        ) : (<></>)
+        }
       </div>
     </nav >
   )

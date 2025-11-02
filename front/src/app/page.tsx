@@ -3,9 +3,6 @@ import { getProdutsDB } from "@/services/products.services"
 import { IProduct } from "@/types"
 import { useState, useEffect } from "react"
 import CardList from "./components/Card/CardList"
-import Link from "next/link"
-import Card from "./components/Card/Card"
-import { ListProducts } from "./helpers/ListProducts"
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<IProduct[]>([])
