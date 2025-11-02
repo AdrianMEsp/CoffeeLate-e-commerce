@@ -17,7 +17,7 @@ const AddCartButton = ({ product }: ButtonProps) => {
                                  text-blackPrimary  bg-white rounded-lg border border-blackPrimary
                                   hover:bg-orangeThree hover:text-primary-700 
                                       "
-                onClick={addToCart}
+                onClick={()=> addToCart(product)}
             >
                 <svg
                     className="w-5 h-5 -ms-2 me-2"

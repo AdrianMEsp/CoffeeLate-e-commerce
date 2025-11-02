@@ -38,6 +38,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const logout = () => {
         setUserData(null)
         localStorage.removeItem("userSession")
+        localStorage.removeItem("cart")  /*sino otro usuario inicia sesion en la misma pc y tiene el carrito de otro */
         router.push("/auth/login")
     }
 

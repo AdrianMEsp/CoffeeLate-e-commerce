@@ -9,14 +9,6 @@ import { usePathname } from "next/navigation";
 
 const NavBar = () => {
 
-  /* const [userData, setUserData] = useState()
-  const pathname = usePathname() //para que actualice el navbar,sino no se entera
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("userSession")!)
-    setUserData(data)
-  }, [pathname]) */
-
   const { userData, logout } = useAuth();
   const pathname = usePathname();
 
