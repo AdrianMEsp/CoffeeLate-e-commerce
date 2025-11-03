@@ -14,7 +14,6 @@ function LoginView() {
     const router = useRouter()
     const {setUserData} = useAuth()
 
-
     return (
         <div className='form-bg'>
             <Formik
@@ -22,7 +21,6 @@ function LoginView() {
                 validate={validateLoginForm}
                 onSubmit={async (values) => {
                     const response = await login(values)
-                    /* localStorage.setItem("userSession", JSON.stringify({token: response.token, user: response.user})) */
                     const {token, user} = response
                     setUserData({token, user})
                     router.push("/")

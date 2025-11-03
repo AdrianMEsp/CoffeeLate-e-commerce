@@ -24,45 +24,49 @@ export default function ProductsPage() {
         { id: 1, name: 'Whole Bean Coffee' },
         { id: 2, name: 'Ground Coffee' },
         { id: 3, name: 'Coffee Capsules' },
-        { id: 4, name: 'Instant/Soluble Coffee' },
-        { id: 5, name: 'Specialty/Gourmet Coffee' },
+        { id: 4, name: 'Instant Soluble Coffee' },
+        { id: 5, name: 'Specialty Gourmet Coffee' },
         { id: 6, name: 'Not coffee' }
     ];
-
-    const handleCategoryClick = (categoryName: string) => {
-        const category = categories.find(c => c.name === categoryName)
-        setSelectedCategoryId(category ? category.id : null)
-    }
-
     return (
+
         <div className="flex">
             {/* SIDEBAR */}
-            <aside className="bg-neutral-900 text-white p-4 pt-8 w-1/3 
+            <aside className="bg-neutral-900 text-white p-4 pt-8 w-min
             md:w-1/5">
                 <h2 className="text-xl font-bold mb-4">Categories</h2>
-                <ul className="space-y-2">
+                <div className="space-y-2 flex flex-col items-start cursor-pointer">
                     {categories.map(cat => (
-                        <li
-                            key={cat.id}>
-                            <button
-                                onClick={() => handleCategoryClick(cat.name)}
-                                className="hover:text-orangeTwo block"
-                            >
-                                {cat.name}
-                            </button>
-                        </li>
+                        <button
+                            key={cat.id}
+                            onClick={() => setSelectedCategoryId(cat.id)}
+                            className={`text-start border-b-2 cursor-pointer px-1
+                            ${selectedCategoryId === cat.id
+                                    ? "text-orangeTwo font-bold border-orangeTwo"
+                                    : "hover:text-orangeTwo"
+                                }`
+                            }
+                        >
+                            {cat.name}
+                        </button>
                     ))}
-                    <li
-                        className="cursor-pointer text-orange-400"
+
+                    <button
                         onClick={() => setSelectedCategoryId(null)}
+                        className={`px-1 border-b-2 cursor-pointer
+                        ${selectedCategoryId === null
+                                ? "text-orangeTwo font-bold border-orangeTwo"
+                                : "text-orange-400 hover:text-orangeTwo"
+                            }`
+                        }
                     >
                         Show All
-                    </li>
-                </ul>
+                    </button>
+                </div>
             </aside>
 
             {/* PRODUCTS */}
-            <CardList listProducts={filtered}/>
+            <CardList listProducts={filtered} />
 
         </div>
     )

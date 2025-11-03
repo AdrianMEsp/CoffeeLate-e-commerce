@@ -36,8 +36,9 @@ const LandingPage = () => {
             {/* Properties */}
             <div>
                 <div>
-                    <div className="flex md:flex-row md:justify-evenly md:h-60 md:overflow-x-auto no-scrollbar
-                        flex-wrap
+                    <div className="flex flex-wrap justify-center
+                    md:flex-row md:justify-evenly md:h-60 md:overflow-x-auto no-scrollbar
+                        
                     ">
                         {ListProperties.map((propertie) => {
                             return <CardProp key={propertie.id} {...propertie}></CardProp>
