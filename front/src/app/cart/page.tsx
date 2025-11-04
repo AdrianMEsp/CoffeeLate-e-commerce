@@ -103,7 +103,8 @@ const CartPage = () => {
 
                         <button
                             onClick={handleCheckout}
-                            className="flex w-full items-center justify-center cursor-pointer hover:text-orangeOne text-2xl text-white"
+                            className="flex w-full items-center justify-center cursor-pointer
+                             hover:text-orangeOne text-2xl text-white"
                             disabled={!userData}
                         >
                             Proceed to Checkout
@@ -111,7 +112,10 @@ const CartPage = () => {
 
                         <button
                             onClick={handleClearCart}
-                            className="flex w-full items-center justify-center cursor-pointer text-sm font-medium hover:bg-red-800 hover:border-red-800 rounded-2xl p-1 text-error border-2 border-error"
+                            className="flex w-full items-center justify-center cursor-pointer 
+                            text-sm font-medium
+                             hover:bg-red-500 hover:border-red-800 hover:text-blackPrimary hover:font-bold
+                              rounded-2xl p-1 text-error border-2 border-error"
                         >
                             Clear Cart
                         </button>

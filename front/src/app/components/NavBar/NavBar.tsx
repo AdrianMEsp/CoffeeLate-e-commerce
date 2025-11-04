@@ -25,7 +25,7 @@ const NavBar = () => {
 
         {/* Logo */}
         {!(isLogin || isRegister) ? (
-          <Link href="/" className="flex items-center rtl:space-x-reverse">
+          <Link href="/landing" className="flex items-center rtl:space-x-reverse">
             <Image src={logo} width={50} alt="CoffeeLate Logo" />
             <span className="text-orangeOne ml-1">Coffee</span>
             <span className="text-blackPrimary">Late</span>
