@@ -50,19 +50,18 @@ const LandingPage = () => {
 
             {/* Field */}
             <div className="flex flex-col p-6 bg-linear-to-b to-neutral-800
-                            md:flex-row ">
-                <div className="w-full
-                                md:w-1/2">
+                            lg:flex-row ">
+                <div className="">
                     <Image src={CafeBg} alt="holi" className="rounded-2xl" />
                 </div>
                 <div className="ml-2 w-full flex justify-between flex-col items-center
-                                md:ml-8 md:w-1/2 ">
-                    <p className="font-bold text-6xl mt-2 md:mt-0
+                                lg:ml-8 lg:w-1/2 ">
+                    <p className="font-bold text-6xl mt-2 lg:mt-0
 
                     ">Best coffee shop in Argentina</p>
-                    <p className="mt-2 md:mt-0 ">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
+                    <p className="mt-2 lg:mt-0 ">A passionate family cultivates their own coffee plants in the mountain highlands, nurturing each one with care. After harvest, they hand-select the finest beans, roast and pack them meticulously to preserve their aroma and freshness. The result is an authentic specialty coffee, crafted with love from the farm to your cup.</p>
                     <Link href={"/about"}
-                        className="p-3 w-35 border rounded bg-linear-to-r from-orangeThree text-center mt-2 md:mt-0">Read More!</Link>
+                        className="p-3 w-35 border rounded bg-linear-to-r from-orangeThree text-center mt-2 lg:mt-0">Read More!</Link>
                 </div>
             </div>
 

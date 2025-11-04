@@ -7,14 +7,17 @@ import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 const NavBar = () => {
   const { userData, logout } = useAuth();
+  const { getItemsCount } = useCart();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para hamburguesa
 
   const isLogin = pathname === "/auth/login"
   const isRegister = pathname === "/auth/register"
+  const itemsCount = getItemsCount();
 
   return (
     <nav className="bg-gray-300 font-bold text-blackPrimary">
@@ -66,9 +69,21 @@ const NavBar = () => {
                       onClick={() => setIsMenuOpen(false)} // Cierra hamburguesa al navegar
                       className={`block py-2 px-3 text-blackPrimary font-bold relative 
                       md:hover:rounded-3xl hover:bg-orangeTwo
-          ${isActive ? "md:border-b-4 md:border-orangeTwo" : ""}`}
-      >
+                      ${isActive ? "md:border-b-4 md:border-orangeTwo" : ""}
+                      `}
+                    >
                       {route.nameToRender}
+
+                        {/* Numero notificaciones */}
+                      {route.route === "/cart" && itemsCount > 0 && (
+                        <span
+                          className="absolute md:-top-1 md:-right-1 bg-orangeTwo text-white text-xs font-bold 
+                          w-5 h-5 flex items-center justify-center rounded-full
+                          top-1 left-12"
+                        >
+                          {itemsCount}
+                        </span>
+                      )}
                     </Link>
                   </li>)
               })}
