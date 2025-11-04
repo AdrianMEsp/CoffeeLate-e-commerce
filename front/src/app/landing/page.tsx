@@ -15,6 +15,7 @@ const LandingPage = () => {
 
             <Carousel />
 
+            {/* Colombia */}
             <div className="flex justify-between bg-gray-300 border-2 rounded border-blackPrimary">
                 <div className="hidden md:block">
                     <Image src={coffee} alt="" />
@@ -37,8 +38,8 @@ const LandingPage = () => {
             <div>
                 <div>
                     <div className="flex flex-wrap justify-center
-                    md:flex-row md:justify-evenly md:h-60 md:overflow-x-auto no-scrollbar
-                        
+                    sm:flex-row sm:justify-between sm:me-3 sm:ms-3 no-scrollbar
+                       
                     ">
                         {ListProperties.map((propertie) => {
                             return <CardProp key={propertie.id} {...propertie}></CardProp>

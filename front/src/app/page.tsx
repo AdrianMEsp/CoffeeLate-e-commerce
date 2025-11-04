@@ -31,10 +31,11 @@ export default function ProductsPage() {
     return (
 
         <div className="flex">
+
             {/* SIDEBAR */}
-            <aside className="bg-neutral-900 text-white p-4 pt-8 w-min
-            md:w-1/5">
+            <aside className="bg-neutral-900 text-white p-4 pt-8 w-min">
                 <h2 className="text-xl font-bold mb-4">Categories</h2>
+                
                 <div className="space-y-2 flex flex-col items-start cursor-pointer">
                     {categories.map(cat => (
                         <button

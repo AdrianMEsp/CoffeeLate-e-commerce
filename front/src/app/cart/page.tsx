@@ -2,9 +2,8 @@
 
 import { useAuth } from "@/context/AuthContext";
 import { useCart } from "@/context/CartContext";
-import { createOrder } from "@/utils/orders.helper";
+import { createOrder } from "@/services/orders.services";
 import Image from "next/image";
-
 
 const CartPage = () => {
 
@@ -36,7 +35,7 @@ const CartPage = () => {
 
                 {/* Product */}
                 <div className="sm:flex sm:flex-col sm:items-center">
-                    <div className="flex flex-col justify-center items-center ">
+                    <div className="flex flex-col justify-center items-center sm:w-2/3">
                         {cartItems && cartItems.map((prod) =>
                         (
                             <div key={prod.id} className="border-2 rounded-2xl p-1 m-4 w-full sm:w-1/2">
@@ -68,34 +67,37 @@ const CartPage = () => {
                 <div className="sm:flex sm:justify-center">
                     <div className="space-y-4 rounded-lg border p-4 shadow-sm
                      border-gray-700 bg-gray-800
-                    sm:flex sm:w-1/2 sm:flex-col sm:items-center "
+                    sm:flex sm:w-2/3 sm:flex-col  "
                     >
-                        <p className="text-xl font-semibold text-white">Order summary</p>
+                        <p className="text-3xl font-semibold text-white border-b-2">Order summary</p>
                         <p className="text-gray-400">Items ({getItemsCount()})</p>
-                        <div className="space-y-4">
+
+                        <div className="space-y-4 font-bold">
 
                             <div className="space-y-2">
                                 <dl className="flex items-center justify-between gap-4">
-                                    <dt className="text-base font-normal text-gray-400">Original price</dt>
-                                    <dd className="text-base font-medium text-white">${getTotal()}</dd>
+                                    <dt className=" text-gray-400">Original price</dt>
+                                    <dd className=" text-white">${getTotal()}</dd>
                                 </dl>
                             </div>
 
-                            <dl className="flex items-center justify-between gap-4 border-t border-gray-700">
-                                <dt className="text-base font-bold text-white">Total</dt>
-                                <dd className="text-base font-bold text-white">${getTotal()}</dd>
+                            <dl className="flex text-2xl items-center justify-between gap-4 border-t border-gray-700">
+                                <dt className=" text-white">Total</dt>
+                                <dd className=" text-white">${getTotal()}</dd>
                             </dl>
                         </div>
 
                         <button onClick={handleCheckout} className="flex w-full items-center justify-center 
-                        cursor-pointer hover:text-orangeOne text-sm font-medium text-white 
+                        cursor-pointer hover:text-orangeOne text-2xl text-white 
                         "
                             disabled={!userData} >
                             Proceed to Checkout
                         </button>
 
                         <button onClick={clearCart} className="flex w-full items-center justify-center
-                         cursor-pointer text-sm font-medium hover:text-error text-red-950">
+                         cursor-pointer text-sm font-medium hover:bg-red-800 hover:border-red-800
+                         rounded-2xl p-1
+                          text-error border-2 border-error">
                             Clear Cart
                         </button>
                     </div>

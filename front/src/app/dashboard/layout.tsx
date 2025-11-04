@@ -7,9 +7,9 @@ export default function DashboardLayout({
 }) {
     return (
         <div>
-            <div className="flex justify-evenly text-3xl">
-                <Link href="/dashboard/orders">Orders</Link>
-                <Link href="/dashboard">Profile</Link>
+            <div className="flex justify-evenly text-3xl p-3">
+                <Link className="hover:text-orangeThree hover:border-orangeThree hover:border-b-2 border-b-2 border-black" href="/dashboard/orders">Orders</Link>
+                <Link className="hover:text-orangeThree hover:border-orangeThree hover:border-b-2 border-b-2 border-black" href="/dashboard">Profile</Link>
             </div>
             <div>
                 {children}

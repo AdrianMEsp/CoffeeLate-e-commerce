@@ -3,7 +3,7 @@
 import Order from "@/app/components/Order/Order";
 import { useAuth } from "@/context/AuthContext";
 import { IOrder } from "@/types";
-import { getOrders } from "@/utils/orders.helper";
+import { getOrders } from "@/services/orders.services";
 import { useEffect, useState } from "react";
 
 const OrdersPage = () => {
@@ -22,6 +22,7 @@ const OrdersPage = () => {
         handleGetOrders();
     }, [userData])
 
+    /* TODO crear OrderList */
     return (
         <div>
             <div className="p-3 ">

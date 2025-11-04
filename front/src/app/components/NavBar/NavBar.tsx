@@ -6,11 +6,12 @@ import logo from "../../../assets/granoCafeLogo.png"
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const NavBar = () => {
-
   const { userData, logout } = useAuth();
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Estado para hamburguesa
 
   const isLogin = pathname === "/auth/login"
   const isRegister = pathname === "/auth/register"
@@ -34,83 +35,63 @@ const NavBar = () => {
           </div>
         )}
 
-        {/* Botón hamburguesa - solo visible en móvil */}
+        {/* Botón hamburguesa */}
         <button
-          data-collapse-toggle="navbar-default"
+          onClick={() => setIsMenuOpen(!isMenuOpen)} // logica para desplegar hamburguesa
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm
            text-gray-500 rounded-lg md:hidden hover:bg-yellow focus:outline-none focus:ring-2
            focus:ring-lightOrange "
-          aria-controls="navbar-default"
-          aria-expanded="false"
         >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              d="M1 1h15M1 7h15M1 13h15" />
           </svg>
         </button>
 
-        {/* Links de navegación */}
-        {userData ? (
-          <div>
-            <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul
-                className="font-medium flex flex-col  border border-blackPrimary bg-whitePrimary
+        {/* Links */}
+        {userData && (
+          <div className={`${isMenuOpen ? "block" : "hidden"} w-full md:block md:w-auto`} id="navbar-default">
+            <ul
+              className="font-medium flex flex-col border border-blackPrimary bg-whitePrimary
               md:p-3 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:items-center md:rounded-full"
-              >
-                {NavItems.map((route) => {
-                  return (
-                    <li key={route.id}>
-                      <Link href={route.route}
-                        className="block py-2 px-3 text-blackPrimary font-bold hover:text-orangeTwo"
-                      >{route.nameToRender}</Link>
-                    </li>
-                  )
+            >
+              {NavItems.map((route) => {
+                const isActive = pathname === route.route;
 
-                })}
-              </ul>
+                return (
+                  <li key={route.id}>
+                    <Link
+                      href={route.route}
+                      onClick={() => setIsMenuOpen(false)} // Cierra hamburguesa al navegar
+                      className={`block py-2 px-3 text-blackPrimary font-bold relative 
+                      md:hover:rounded-3xl hover:bg-orangeTwo
+          ${isActive ? "md:border-b-4 md:border-orangeTwo" : ""}`}
+      >
+                      {route.nameToRender}
+                    </Link>
+                  </li>)
+              })}
 
-            </div>
-          </div>
-        ) : (
-          <div className="ml-auto">
-            <div>
-              {isLogin && (
-                <Link className="hover:text-orangeTwo" href="/auth/register">
-                  Register
-                </Link>
-              )}
-              {isRegister && (
-                <Link className="hover:text-orangeTwo" href="/auth/login">
-                  Login
-                </Link>
-              )}
-            </div>
+              <button onClick={logout} className="hover:bg-error py-2 md:hover:rounded-3xl px-3 text-blackPrimary font-bold 
+              flex justify-end">
+                Logout
+              </button>
+            </ul>
           </div>
         )}
 
-        {userData ? (
-          <>
-            <button className=" hover:text-error" onClick={logout}>Logout</button>
-            <p >Bienvenido {userData?.user.name.split(" ")[0]}</p>
-          </>
-        ) : (<></>)
-        }
+        {!userData && (
+          <div className="ml-auto">
+            {isLogin && <Link className="hover:text-orangeTwo" href="/auth/register">Register</Link>}
+            {isRegister && <Link className="hover:text-orangeTwo" href="/auth/login">Login</Link>}
+          </div>
+        )}
+
+        {userData && <p>Hola, {userData.user.name.split(" ")[0]}</p>}
       </div>
-    </nav >
-  )
-}
+    </nav>
+  );
+};
 
 export default NavBar;

@@ -5,9 +5,9 @@ import { Form, Formik } from 'formik';
 import { validateLoginForm } from '@/utils/validate';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import FieldCustom from '../../components/FieldCustom/FieldCustom'
-import { login } from '@/utils/auth.helper';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import { login } from '@/services/user.services';
 
 function LoginView() {
 

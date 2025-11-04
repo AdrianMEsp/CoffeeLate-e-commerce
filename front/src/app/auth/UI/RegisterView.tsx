@@ -5,8 +5,8 @@ import { Form, Formik } from 'formik';
 import { validateSchemaRegister } from '@/utils/validate';
 import SubmitButton from '../../components/SubmitButton/SubmitButton';
 import FieldCustom from '../../components/FieldCustom/FieldCustom'
-import { register } from '@/utils/auth.helper';
 import { useRouter } from 'next/navigation';
+import { register } from '@/services/user.services';
 
 function RegisterView() {
     const router = useRouter()

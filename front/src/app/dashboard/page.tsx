@@ -10,18 +10,19 @@ const Dashboard = () => {
     return (
         <div>
             {userData ? (
-                <div className="flex flex-col m-3 text-2xl bg-amber-600 p-3 rounded-2xl border-2">
-                    <div className="flex flex-row justify-between">
+                <div className="flex flex-col m-3 text-2xl bg-amber-600 p-3 rounded-2xl border-2
+                    ">
+                    <div className="sm:flex sm:flex-row ">
                         <p>Name:</p>
-                    <p>{userData.user.name}</p>
+                        <p>{userData.user.name}</p>
                     </div>
-                    <div className="my-6 flex flex-row justify-between">
+                    <div className="my-6 sm:flex sm:flex-row">
                         <p>Direction:</p>
-                    <p>{userData.user.address}</p>
+                        <p>{userData.user.address}</p>
                     </div>
-                    <div className="flex flex-row justify-between">
+                    <div className="sm:flex sm:flex-row">
                         <p>Phone Number:</p>
-                    <p>{userData.user.phone}</p>
+                        <p>{userData.user.phone}</p>
                     </div>
                 </div>
             ) : (<></>)

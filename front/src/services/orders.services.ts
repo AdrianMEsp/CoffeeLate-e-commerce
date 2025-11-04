@@ -1,20 +1,38 @@
-
-
 const APIURL = process.env.NEXT_PUBLIC_API_URL
 
-/* usado por ivan ,vamos usar context  */
-
-export const createOrder= async (idProduct: number[], token: string) => {
-    try{
+export const createOrder= async (token: string, idProducts: number[]) => {
+     try{
         const response = await fetch(`${APIURL}/orders`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                Authorization: JSON.stringify(token),
+                "Content-type": "application/json",
+                Authorization: token,
             },
-            body: JSON.stringify({products: idProduct})
+            body: JSON.stringify({products: idProducts}),
         })
         
+        if(response.ok){
+            alert("La compra fue realizada con exito")
+            return response.json()
+        }else {
+            throw new Error("Error creando la orden");
+        }
+    }catch(error: any){
+        throw new Error(error)
+    }
+}
+
+export async function getOrders(token: string) {
+    try{
+        const response = await fetch(`${APIURL}/users/orders`, {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json",
+                cache: "no-cache",
+                Authorization: token
+            }
+        })
+        return response.json();
     }catch(error: any){
         throw new Error(error)
     }
