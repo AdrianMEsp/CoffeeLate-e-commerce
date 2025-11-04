@@ -1,4 +1,5 @@
 import { ILoginProps, IRegister } from "@/types"
+import { toast } from "sonner"
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL
 
@@ -12,10 +13,10 @@ export async function register(userData: IRegister) {
             body: JSON.stringify(userData)
         })
         if(response.ok){
-            alert("Usuario registrado")
+            toast.success("Usuario registrado")
             return response.json()
         }else {
-            alert("Fallo al registrar el usuario")
+            toast.error("Fallo al registrar el usuario")
             throw new Error("Fallo el servidor al registrar el usuario")
         }
     }catch(error: any){
@@ -33,10 +34,10 @@ export async function login(userData: ILoginProps) {
             body: JSON.stringify(userData)
         })
         if(response.ok){
-            alert("Usuario Logeado")
+            toast.success("Usuario Logeado")
             return response.json()
         }else {
-            alert("Fallo al logear el usuario")
+            toast.error("Fallo al logear el usuario")
             throw new Error("Fallo el servidor al logear el usuario")
         }
     }catch(error: any){

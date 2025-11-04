@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer"
 import "flowbite";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
+import { Toaster } from "sonner";
 
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
           <CartProvider>
             <NavBar />
             {children}                                  {/* esto es toda la pagina */}
+            <Toaster richColors/>
             <Footer />
           </CartProvider>
         </AuthProvider>

@@ -1,3 +1,5 @@
+import { toast } from "sonner"
+
 const APIURL = process.env.NEXT_PUBLIC_API_URL
 
 export const createOrder= async (token: string, idProducts: number[]) => {
@@ -12,7 +14,7 @@ export const createOrder= async (token: string, idProducts: number[]) => {
         })
         
         if(response.ok){
-            alert("La compra fue realizada con exito")
+            toast.success("La compra fue realizada con exito")
             return response.json()
         }else {
             throw new Error("Error creando la orden");

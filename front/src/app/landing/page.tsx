@@ -1,5 +1,4 @@
 import React from "react"
-import CardList from "../components/Card/CardList"
 import Image from "next/image"
 import coffee from "../../assets/coffeBackground-Vertical-removebg-preview.png"
 import CardProp from "../components/CardProp/CardProp"

@@ -8,7 +8,7 @@ export const NavItems = [
     },
     {
         id:2,
-        nameToRender: 'Home',
+        nameToRender: 'Store',
         route: PATHROUTES.HOME
     },
     {

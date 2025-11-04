@@ -3,6 +3,7 @@
 import { IProduct } from "@/types"
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./AuthContext";
+import { toast } from "sonner";
 
 interface CartContextProps {
     cartItems: IProduct[];
@@ -49,7 +50,7 @@ export const CartProvider: React.FC<CartProvider> = ({ children }) => {
 
     const addToCart = (product: IProduct) => {
         if (!userData) {
-            alert(
+            toast.warning(
                 "Debes iniciar sesion para agregar al carrito"
             )
             return
@@ -57,16 +58,20 @@ export const CartProvider: React.FC<CartProvider> = ({ children }) => {
         const productExist = cartItems.some((item) =>
             item.id === product.id)
         if (productExist) {
-            alert("Solo una unidad del mismo producto por orden")
+            toast.warning("Solo una unidad del mismo producto por orden")
             return;
         } else {
             setCartItems((prevItems) => [...prevItems, product])
-            alert("Producto agregado al carrito")
+            toast.success("Producto agregado al carrito")
         }
     }
 
     const removeFromCart = (productId: number) => {
-        setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId))
+        setCartItems((prevItems) => {
+            const updatedCart = prevItems.filter((item) => item.id !== productId)
+            localStorage.setItem("cart", JSON.stringify(updatedCart));
+            return updatedCart;
+        })
     }
 
     const clearCart = () => {
@@ -89,7 +94,11 @@ export const CartProvider: React.FC<CartProvider> = ({ children }) => {
     }
 
     return (
-        <CartContex.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, getTotal, getIdItems, getItemsCount }}>
+        <CartContex.Provider value={{
+            cartItems,
+            addToCart, removeFromCart, clearCart,
+            getTotal, getIdItems, getItemsCount
+        }}>
             {children}
         </CartContex.Provider>
     )

@@ -11,6 +11,7 @@ const categoriesSeed: ICategory[] = [
   { id: 6, name: 'Not coffee'}
 ]
 
+ /* TODO: fijarse si sirve de algo */
 export async function getCategoriesDB() {
   try {
     const response = await fetch(`${APIURL}/products`, {
@@ -33,8 +34,8 @@ export async function getCategoriesDB() {
   }
 }
 
- 
-export async function getProductByCategory(id: string) {
+ /* TODO: fijarse si sirve de algo */
+/* export async function getProductByCategory(id: string) {
     try{
         const response = await getCategoriesDB()
         const productsFound = await response.find((product) => product.id.toString() === id)
@@ -44,4 +45,4 @@ export async function getProductByCategory(id: string) {
     } catch (error:any) {
         throw new Error(error)
     }
-}  
+} */  
