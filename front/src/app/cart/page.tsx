@@ -50,20 +50,22 @@ const CartPage = () => {
     return (
         <div className="flex flex-col w-full mx-1">
             <h2 className="text-5xl font-semibold flex justify-center mb-6 text-white mt-5">Shopping Cart</h2>
-            
+
             <div className="mx-2 mb-4">
                 <div className="sm:flex sm:flex-col sm:items-center">
                     <div className="flex flex-col justify-center items-center sm:w-2/3">
                         {cartItems && cartItems.map((prod) => (
                             <div key={prod.id} className="border-2 bg-neutral-800 rounded-2xl p-1 m-4 w-full sm:w-1/2">
-                                <div className="flex justify-between  sm:mr-2">
-                                    <Image src={prod.image} width={125} height={125} alt={prod.name} className="p-1" />
-                                    <div className="flex flex-col justify-center">
-                                        <h3 className="text-center text-3xl mb-2">{prod.name}</h3>
-                                        <h1 className="text-center m-2">{prod.description}</h1>
+
+                                    <div className="flex justify-between  sm:mr-2">
+                                        <Image src={prod.image} width={125} height={125} alt={prod.name} className="p-1" />
+                                        <div className="flex flex-col justify-center">
+                                            <h3 className="text-center text-3xl mb-2">{prod.name}</h3>
+                                            <h1 className="text-center m-2">{prod.description}</h1>
+                                        </div>
+                                        <span className="flex items-center text-orangeThree mr-1 font-bold text-2xl">${prod.price}</span>
                                     </div>
-                                    <span className="flex items-center text-orangeThree mr-1 font-bold text-2xl">${prod.price}</span>
-                                </div>
+
                                 <div className="flex justify-end">
                                     <button
                                         onClick={() => handleRemove(prod.id)}
