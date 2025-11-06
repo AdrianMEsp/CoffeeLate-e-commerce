@@ -14,10 +14,10 @@ export const createOrder= async (token: string, idProducts: number[]) => {
         })
         
         if(response.ok){
-            toast.success("La compra fue realizada con exito")
+            toast.success("The purchase was successful.")
             return response.json()
         }else {
-            throw new Error("Error creando la orden");
+            throw new Error("Error creating the order");
         }
     }catch(error: any){
         throw new Error(error)

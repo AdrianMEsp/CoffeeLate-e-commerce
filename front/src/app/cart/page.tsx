@@ -6,7 +6,6 @@ import { createOrder } from "@/services/orders.services";
 import Image from "next/image";
 import { toast } from "sonner";
 import ConfirmToast from "../components/ToastCustom/ConfirmToast";
-
 const CartPage = () => {
 
     const { userData } = useAuth();
@@ -15,7 +14,7 @@ const CartPage = () => {
 
     const checkout = async () => {
         if (!userData?.token) {
-            toast.error("Error en la sesión");
+            toast.error("Session error");
             return;
         }
 
@@ -23,28 +22,28 @@ const CartPage = () => {
             const response = await createOrder(userData.token, getIdItems());
             console.log(response);
             clearCart();
-            toast.success("Compra realizada");
+            toast.success("Purchase made");
         } catch (error: any) {
             console.error(error);
-            toast.error("No se pudo completar la compra");
+            toast.error("The purchase could not be completed");
         }
     };
 
     const handleCheckout = () => {
-        ConfirmToast("¿Proceder con el pago?", checkout);
+        ConfirmToast("Proceed with payment?", checkout);
     };
 
     const handleClearCart = () => {
-        ConfirmToast("¿Vaciar carrito?", () => {
+        ConfirmToast("Do you want to empty your cart?", () => {
             clearCart();
-            toast.success("Carrito vacío");
+            toast.success("Cart empty");
         });
     };
 
     const handleRemove = (id: number) => {
-        ConfirmToast("¿Eliminar este producto?", () => {
+        ConfirmToast("Remove this product?", () => {
             removeFromCart(id);
-            toast.success("Producto eliminado");
+            toast.success("Product removed");
         });
     };
 

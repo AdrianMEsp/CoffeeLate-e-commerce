@@ -9,7 +9,7 @@ const ConfirmToast = (message: string, onConfirm: () => void) => {
                     onClick={() => toast.dismiss(t)}
                     className="px-3 py-1 rounded bg-gray-600 text-sm hover:bg-gray-700"
                 >
-                    Cancelar
+                    Cancel
                 </button>
                 <button
                     onClick={() => {
@@ -18,7 +18,7 @@ const ConfirmToast = (message: string, onConfirm: () => void) => {
                     }}
                     className="px-3 py-1 rounded bg-orange-600 text-sm hover:bg-orange-700"
                 >
-                    Confirmar
+                    Confirm
                 </button>
             </div>
         </div>

@@ -13,11 +13,11 @@ export async function register(userData: IRegister) {
             body: JSON.stringify(userData)
         })
         if(response.ok){
-            toast.success("Usuario registrado")
+            toast.success("User Registered")
             return response.json()
         }else {
-            toast.error("Fallo al registrar el usuario")
-            throw new Error("Fallo el servidor al registrar el usuario")
+            toast.error("User registration failed")
+            throw new Error("The server failed to register the user")
         }
     }catch(error: any){
         throw new Error(error)
@@ -34,11 +34,12 @@ export async function login(userData: ILoginProps) {
             body: JSON.stringify(userData)
         })
         if(response.ok){
-            toast.success("Usuario Logeado")
+            toast.success("User logged in")
             return response.json()
         }else {
-            toast.error("Fallo al logear el usuario")
-            throw new Error("Fallo el servidor al logear el usuario")
+            
+            toast.error("User login failed")
+            throw new Error("The server failed while logging in the user.")
         }
     }catch(error: any){
         throw new Error(error)

@@ -103,7 +103,7 @@ const NavBar = () => {
           </div>
         )}
 
-        {userData && <p>Hola, {userData.user.name.split(" ")[0]}</p>}
+        {userData && <p>Hello, {userData.user.name.split(" ")[0]}</p>}
       </div>
     </nav>
   );
