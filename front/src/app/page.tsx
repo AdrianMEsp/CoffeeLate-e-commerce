@@ -3,10 +3,14 @@ import { getProdutsDB } from "@/services/products.services"
 import { IProduct } from "@/types"
 import { useState, useEffect } from "react"
 import CardList from "./components/Card/CardList"
+import { useAuth } from "@/context/AuthContext"
+import { useRouter } from "next/navigation"
 
 export default function ProductsPage() {
     const [products, setProducts] = useState<IProduct[]>([])
     const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null)
+    const {userData}= useAuth();
+    const router = useRouter()
 
     useEffect(() => {
         async function fetchProducts() {
@@ -14,20 +18,29 @@ export default function ProductsPage() {
             setProducts(data)
         }
         fetchProducts()
-    }, [])
+    }, []) 
 
-    const filtered = selectedCategoryId
+     const filtered = selectedCategoryId
         ? products.filter(p => p.categoryId === selectedCategoryId)
-        : products
+        : products 
 
-    const categories = [
+     const categories = [
         { id: 1, name: 'Whole Bean Coffee' },
         { id: 2, name: 'Ground Coffee' },
         { id: 3, name: 'Coffee Capsules' },
         { id: 4, name: 'Instant Soluble Coffee' },
         { id: 5, name: 'Specialty Gourmet Coffee' },
         { id: 6, name: 'Not coffee' }
-    ];
+    ]; 
+
+    useEffect(() => {
+        if (!userData) {
+            router.push("/auth/register");
+        }
+    }, [userData, router]);
+
+    if (!userData) return null;
+
     return (
 
         <div className="flex">

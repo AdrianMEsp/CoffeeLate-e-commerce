@@ -7,12 +7,12 @@ const Order: React.FC<IOrder> = ({ id, status, date, products }) => {
     const [expanded, setExpanded] = useState(false);
 
     return (
-        <div className="mb-5 bg-orangeFour rounded-2xl text-2xl border border-white">
+        <div className="mb-5 bg-orangeFour rounded-2xl md:text-2xl border border-white">
             <div
-                className="flex justify-between items-center font-bold text-3xl p-4 cursor-pointer select-none"
+                className="flex justify-between items-center font-bold md:text-3xl p-4 cursor-pointer select-none"
                 onClick={() => setExpanded((prev) => !prev)}
             >
-                <p className=" flex justify-center font-bold text-3xl p-4">Order N°{id}</p>
+                <p className=" flex justify-center font-bold md:text-3xl p-4">Order N°{id}</p>
 
                 <p className="p-2 font-normal">Date: {new Date(date).toLocaleDateString()}</p>
 
