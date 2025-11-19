@@ -88,8 +88,9 @@ const NavBar = () => {
                   </li>)
               })}
 
-              <button onClick={logout} className="hover:bg-error py-2 md:hover:rounded-3xl px-3 text-blackPrimary font-bold 
-              flex justify-end">
+              <button onClick={logout} 
+              className="hover:bg-error py-2 md:hover:rounded-3xl px-3 text-blackPrimary font-bold 
+              flex justify-end cursor-pointer">
                 Logout
               </button>
             </ul>

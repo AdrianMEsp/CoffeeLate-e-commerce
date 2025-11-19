@@ -87,7 +87,7 @@ const CartPage = () => {
                     sm:flex sm:w-2/3 sm:flex-col">
                         <p className="text-3xl font-semibold text-white border-b-2">Order summary</p>
                         <p className="text-gray-400">Items ({getItemsCount()})</p>
-
+                        
                         <div className="space-y-4 font-bold">
                             <div className="space-y-2">
                                 <dl className="flex items-center justify-between gap-4">
