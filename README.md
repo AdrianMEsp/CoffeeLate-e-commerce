@@ -22,26 +22,26 @@ Back
 ```
     
 ## Screenshots
-<p align="center"> Registro
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/register.png" width="900"/>
-</p>
+<p align="center">Registro</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/register.png" width="900"/>
 
-<p align="center"> Login
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/login.png" width="900"/>
-</p>
 
-<p align="center"> Landing
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/landing.png" width="900"/>
-</p>
+<p align="center">Login</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/login.png" width="900"/>
 
-<p align="center"> Store
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/store.png" width="900"/>
-</p>
 
-<p align="center"> Cart
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/shoping.png" width="900"/>
-</p>
+<p align="center">Landing</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/landing.png" width="900"/>
 
-<p align="center"> History
-  <img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/dashboard.png" width="900"/>
-</p>
+
+<p align="center">Store</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/store.png" width="900"/>
+
+
+<p align="center">Cart</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/shoping.png" width="900"/>
+
+
+<p align="center">History</p>
+<img src="https://github.com/AdrianMEsp/CoffeeLate-e-commerce/blob/main/images/dashboard.png" width="900"/>
+
