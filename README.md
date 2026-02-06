@@ -2,7 +2,18 @@
 # CoffeeLate
 
 
-CoffeeLate es un proyecto frontend individual realizado durante el bootcamp de soy Henry
+CoffeeLate es un proyecto frontend individual realizado durante el bootcamp de soy Henry.
+Desarrollé una aplicación web de comercio electrónico utilizando Next.js  con TypeScript, aplicando CSS y Flexbox para un diseño responsive y adaptable a distintos dispositivos. El proyecto incluye:
+
+Autenticación de usuarios: registro y login.
+
+Carrito de compras con actualización dinámica.
+
+Tienda con filtros de búsqueda para mejorar la experiencia de compra.
+
+Seguimiento de órdenes para que el usuario pueda visualizar el estado de sus pedidos.
+
+Gestión de estado con Context API, asegurando un flujo consistente en toda la aplicación.
 ## 🛠 Tecnologias
 Nextjs, React,Typescript, TailwindCss, Context, Formik Flowbite, sonner
 
